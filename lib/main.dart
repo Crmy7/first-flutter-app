@@ -32,56 +32,27 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       //home: const MyHomePage(title: 'Cours d\'application mobile.'),
-      //home: const MyFirstUI()
-      home: const BasicUI()
+      home: const MyFirstUI()
+      //home: const BasicUI()
     );
   }
 }
 
 
 class MyFirstUI extends StatelessWidget {
-  const MyFirstUI({super.key});
+  const MyFirstUI({Key? key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Basic UI"),
+        title: const Text(
+          "Basic UI",
+          style: TextStyle(color: Colors.white, fontSize: 35),
+        ),
         elevation: 3,
-        shadowColor: Colors.red,
         centerTitle: true,
-        backgroundColor: Colors.blue,
-      ),
-      body: Column(
-         children: [
-           Container(
-             height: 120.0,
-             alignment: Alignment.center,
-             width: 120.0,
-             color: Colors.pink,
-             child: Text(
-               "Salut",
-               textAlign: TextAlign.center,
-             ),
-           )
-         ],
-
-      ),
-    );
-  }
-}
-
-class BasicUI extends StatelessWidget {
-  const BasicUI({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Basic UI"),
-        elevation: 3,
-        shadowColor: Colors.white,
-        centerTitle: true,
+        backgroundColor: Colors.black,
       ),
       body: Column(
         children: <Widget>[
@@ -124,6 +95,7 @@ class BasicUI extends StatelessWidget {
     );
   }
 }
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
