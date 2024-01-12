@@ -1,3 +1,5 @@
+import 'package:app/widgets/amis.dart';
+import 'package:app/widgets/feed.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -32,15 +34,15 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       //home: const MyHomePage(title: 'Cours d\'application mobile.'),
-      home: const MyFirstUI()
+      //home: const MyFirstUI()
       //home: const BasicUI()
+      home: ProfilePage(),
     );
   }
 }
 
-
 class MyFirstUI extends StatelessWidget {
-  const MyFirstUI({Key? key});
+  const MyFirstUI({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +78,8 @@ class MyFirstUI extends StatelessWidget {
               children: <Widget>[
                 Expanded(child: Container(color: Colors.cyan)),
                 Expanded(child: Container(color: Colors.black)),
-                Expanded(child: Column(
+                Expanded(
+                    child: Column(
                   children: <Widget>[
                     Expanded(child: Container(color: Colors.yellow)),
                     Expanded(child: Container(color: Colors.pink)),
@@ -96,6 +99,215 @@ class MyFirstUI extends StatelessWidget {
   }
 }
 
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          "Profile",
+          style: TextStyle(color: Colors.white, fontSize: 30),
+        ),
+        elevation: 3,
+        centerTitle: true,
+        backgroundColor: Colors.blue,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            SizedBox(
+              height: 250,
+              child: Stack(
+                children: <Widget>[
+                  Container(
+                    height: 200,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                          "assets/images/AdobeStock_243259090.jpeg",
+                        ),
+                        fit: BoxFit.cover,
+                        alignment: Alignment.center,
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        height: 100,
+                        width: 100,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            width: 3,
+                            color: Colors.white,
+                          ),
+                          borderRadius: BorderRadius.circular(100),
+                          image: DecorationImage(
+                            image: AssetImage(
+                              "assets/images/AdobeStock_460918802.jpeg",
+                            ),
+                            fit: BoxFit.cover,
+                            alignment: Alignment.center,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 10),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                children: <Widget>[
+                  Center(
+                    child: Text(
+                      "Valentin Folliguet",
+                      textAlign: TextAlign.center,
+                      style:
+                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Center(
+                    child: Text(
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontStyle: FontStyle.italic, color: Colors.grey),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Row(
+                    children: <Widget>[
+                      Expanded(
+                        flex: 7,
+                        child: TextButton(
+                          style: ButtonStyle(
+                            foregroundColor:
+                                MaterialStateProperty.all<Color>(Colors.blue),
+                            padding: MaterialStateProperty.all<EdgeInsets>(
+                              EdgeInsets.symmetric(
+                                  horizontal: 40, vertical: 10),
+                            ),
+                            side: MaterialStateProperty.all<BorderSide>(
+                              BorderSide(color: Colors.blue),
+                            ),
+                          ),
+                          onPressed: () {},
+                          child: Text(
+                            'Modifier le profil',
+                            style: TextStyle(fontSize: 16),
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      Expanded(
+                        flex: 3,
+                        child: TextButton(
+                          style: ButtonStyle(
+                            padding: MaterialStateProperty.all<EdgeInsets>(
+                              EdgeInsets.symmetric(
+                                  horizontal: 30, vertical: 10),
+                            ),
+                            foregroundColor:
+                                MaterialStateProperty.all<Color>(Colors.white),
+                            backgroundColor:
+                                MaterialStateProperty.all<Color>(Colors.blue),
+                          ),
+                          onPressed: () {},
+                          child: Text(
+                            '+',
+                            style: TextStyle(fontSize: 18),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 20),
+                  Divider(),
+                  SizedBox(height: 20),
+                ],
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 20),
+                    child: Text(
+                      "A propos de moi …",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.house,
+                        color: Colors.black,
+                      ),
+                      SizedBox(width: 10),
+                      Text('Annecy le vieux, France'),
+                    ],
+                  ),
+                  SizedBox(height: 10),
+                  Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.work,
+                        color: Colors.black,
+                      ),
+                      SizedBox(width: 10),
+                      Text('Développeur web'),
+                    ],
+                  ),
+                  SizedBox(height: 10),
+                  Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.favorite,
+                        color: Colors.black,
+                      ),
+                      SizedBox(width: 10),
+                      Text('Célibataire 😭'),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                children: <Widget>[
+                  Amis(),
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                children: <Widget>[
+                  Feed(),
+                ],
+              ),
+            ),
+            SizedBox(height: 100),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -182,6 +394,5 @@ class _MyHomePageState extends State<MyHomePage> {
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
-
   }
 }
